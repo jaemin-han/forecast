@@ -1,0 +1,15 @@
+app-container {
+  /*font-family: 'Pangolin', cursive;*/
+}
+
+header h1 {
+  color: tomato;
+  text-align: center;
+  font-family: 'Pangolin', cursive;
+}
+
+#center {
+  text-align: center;
+  margin-top: 20%;
+  font-family: 'Pangolin', cursive;
+}
