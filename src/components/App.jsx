@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+// import WeatherForm from './WeatherForm/WeatherForm.jsx';
+// import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
 import './normalize.css';
 import style from './App.css';
 
