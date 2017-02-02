@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './normalize.css';
 import style from './App.css';
-import WeatherForm from './WeatherForm/WeatherForm.jsx';
+// import WeatherForm from './WeatherForm/WeatherForm.jsx';
 // import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
 
 class App extends Component {
@@ -42,6 +42,8 @@ class App extends Component {
           </form>
 
           <button id="submit" value="Submit" onClick={this.handleUpdate}>Submit</button>
+
+          {/*<WeatherForm />*/}
         </div>
       </div>
     );

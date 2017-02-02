@@ -7,6 +7,7 @@ import WeatherInfo from '../WeatherInfo/WeatherInfo.jsx';
 //API_KEY saved in my .env file
 const API_KEY = process.env.WEATHER_API_KEY;
 
+// Fetch API from openweathermap.com
 class WeatherForm extends Component {
   constructor() {
     super();

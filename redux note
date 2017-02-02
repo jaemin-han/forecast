@@ -1,0 +1,87 @@
+Redux (Library making single page application)
+
+- The whole state of the app is stored in an object tree inside a single store.
+- The only way to change the state tree is to emit an action, an object describing what happened.
+- To specify how the actions transform the state tree, you write pure reducers.
+
+Set everything up so it works beautifully - less hassle.
+
+Youtube: thenewboston
+
+
+Redux: no matter how many pieces or complex* == make it simple
+- combine into one big javascript object
+1) Store: all the applications states/data
+2) Provider: makes store available to all containers (pipe down to component) Pass to 'containers'
+3) Containers: fetch apps state data and use it to render(display) components
+- Note: apps state will become component props
+4) Components: Button, Forms, Submit, etc. - performing action
+5) Actions: something happens/ any change made to the applications state
+6) Reducers: takes in actions and decide what part of the 'store' to change
+
+
+Project Setup:
+
+Inside js/index.js--
+import {Provider} from 'react-redux';
+
+const store = createStore(allReducers); [just one big objec in here]
+
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>
+  , document.getElementById('root'));
+
+  *cool stuff
+
+  combine whole components in one file.
+  containers = components that are hooked up to database
+
+
+Containers: component(s) that are hookup to a data storage
+Components: part of the website that does not have a 'brain'
+
+Under 'Containers' folder - (it will look similar to components)
+- Treated as {Component}
+- import {bindActionCreator} from 'redux';
+- import {connect} from 'react-redux';
+
+class UserList extends Component {
+
+  render() {
+    return (
+      <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three</li>
+      </ul>
+    )
+  }
+}
+
+function mapStateToProps(state) {
+  return(
+    users: state.users
+  )
+}
+
+export default UserList;
+(above shown is exporting default dumb componenet - doesnt do anything)
+
+so we should be doing this....
+
+export default connect(mapStateToProps)(UserList);
+(Now--- 'smart' component or a 'container')
+
+Note: https://www.youtube.com/watch?v=wa1NaL_WWpI
+Reducer - save data we want to use in our application -- objects.
+Every 'Reducer' we create, we need to combine it into one big 'Object'.
+Every small piece of data --> combine them in one 'Object' (& call is 'AllReducer' or whatever).
+Create a master 'object' --> bunch of data.
+Because we rendered it in the index.js (which <App /> is also under) - pretty much every component has
+acess to the data.
+
+Notes: https://www.youtube.com/watch?v=_x3gitcwtAc
+Setting up 'Actions'
+
