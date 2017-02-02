@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './normalize.css';
 import style from './App.css';
 // import WeatherForm from './WeatherForm/WeatherForm.jsx';
-// import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
+import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
 
 class App extends Component {
   constructor() {
@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {value: ''};
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.zip = this.props.zip;
+    this.url = `http://api.openweathermap.org/data/2.5/weather?zip=${this.zip},us&appid=${API_KEY}`;
   }
 
   handleUpdate(e) {
@@ -42,6 +44,13 @@ class App extends Component {
           </form>
 
           <button id="submit" value="Submit" onClick={this.handleUpdate}>Submit</button>
+
+          <Fetch
+            url={this.url}>
+            <WeatherInfo
+              zip={this.zip}
+            />
+          </Fetch>
 
           {/*<WeatherForm />*/}
         </div>
