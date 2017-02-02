@@ -1,27 +1,47 @@
 import React, { Component } from 'react';
 import './normalize.css';
 import style from './App.css';
-// import WeatherForm from './WeatherForm/WeatherForm.jsx';
+import WeatherForm from './WeatherForm/WeatherForm.jsx';
 import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
 
 class App extends Component {
   constructor() {
-
     super();
-    this.state = {value: ''};
-    this.handleUpdate = this.handleUpdate.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.zip = this.props.zip;
-    this.url = `http://api.openweathermap.org/data/2.5/weather?zip=${this.zip},us&appid=${API_KEY}`;
-  }
 
-  handleUpdate(e) {
-    this.setState({value:e.target.value});
-  }
+    this.state = {
+      value: '',
+      weatherCity: '',
+      searched: false,
+    };
 
- handleSubmit(e) {
-    alert('Zipcode Entered: ' + this.state.value);
-    e.preventDefault();
+  // calls external api => openweathermap.com
+  // search using value and save city information to state
+  const API_KEY = process.env.WEATHER_API_KEY;
+
+  searchZip() {
+    this.setState ({
+      searched: true,
+    })
+    fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${this.state.value},us&appid=${API_KEY}`)
+    .then(r=>r.json())
+    .then(weather => {
+      console.log('in fetch weather', weather)
+      this. setState({
+        weatherCity: weather.name,
+        // weatherTemp:
+      });
+      console.log('in fetch states', this.state)
+    })
+    .catch(err => console.log('searchZip frontend', err));
+ }
+
+
+  // Update Input
+  handleInput(e) {
+    // console.log('handleInput', e.target.value);
+    this.setState({
+      titleInput : e.target.value,
+    });
   }
 
   render() {
@@ -34,25 +54,16 @@ class App extends Component {
         <div id="center">
           <p>Sup World.</p>
 
-          <form>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleUpdate}
-              placeholder="Check the Weather!"
-            />
-          </form>
+          <WeatherForm
+            handleInput={event => this.handleInput(event)}
+            handleClick={() => this.searchZip()}
+          />
 
-          <button id="submit" value="Submit" onClick={this.handleUpdate}>Submit</button>
+          <WeatherInfo
+            searched={this.state.searched}
+            city={this.state.weatherCity}
+          />
 
-          <Fetch
-            url={this.url}>
-            <WeatherInfo
-              zip={this.zip}
-            />
-          </Fetch>
-
-          {/*<WeatherForm />*/}
         </div>
       </div>
     );

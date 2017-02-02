@@ -1,30 +1,18 @@
 import React from 'react';
-import Fetch from 'react-fetch';
 import '../normalize.css';
 import './WeatherForm.css';
-import WeatherInfo from '../WeatherInfo/WeatherInfo.jsx';
 
-//API_KEY saved in my .env file
-const API_KEY = process.env.WEATHER_API_KEY;
-
-// Fetch API from openweathermap.com
-class WeatherForm extends Component {
-  constructor() {
-    super();
-    this.zip = this.props.zip;
-    this.url = `http://api.openweathermap.org/data/2.5/weather?zip=${this.zip},us&appid=${API_KEY}`;
-  }
-
+export default class WeatherForm extends Component {
   render() {
-    return (
-      <Fetch
-        url={this.url}>
-        <WeatherInfo
-          zip={this.zip}
-        />
-      </Fetch>
-    )
-  };
-};
+    return(
+      <div id={style["search-form"]}>
+        <input id={style["input"]}
+          type="text"
+          placeholder="Zip Zip Zip!"
+          onChange={this.props.handleInput}  />
 
-module.exports = WeatherForm;
+        <button id={style["button"]} onClick={this.props.handleClick} >Search</button>
+      </div>
+    )
+  }
+}
