@@ -4,7 +4,6 @@ import style from './App.css';
 import WeatherForm from './WeatherForm/WeatherForm.jsx';
 import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
 
-const API_KEY = process.env.WEATHER_API_KEY;
 
 class App extends Component {
   constructor() {
@@ -18,45 +17,23 @@ class App extends Component {
     };
 }
 
-
   getAllWeather() {
-    fetch('/api/weather')
-    .then(r => r.json())
-    .then(results => {
-      this.setState({
-        getWeather : results,
-      });
-      console.log('getWeather', this.state.getWeather)
+    // fetch('/api/weather?zip=' + this.state.value)
+    fetch('/api/weather', {
+      headers: { 'Content-Type' : 'application/json'},
+      method: 'POST',
+      body: JSON.stringify({zip: this.state.value}),
     })
-    .catch(err => console.log('getAllWeather frontend', err))
+    .then(data => console.log())
+    .catch(() => res.status(500));
   }
-
-
-  // calls external api => openweathermap.com
-  // search using value and save city information to state
-  searchZip() {
-    this.setState ({
-      searched: true,
-    })
-    fetch(`http://api.openweathermap.org/data/2.5/weather?zip=${this.state.value},us&appid=${API_KEY}`)
-    .then(r=>r.json())
-    .then(weather => {
-      console.log('in fetch weather', weather)
-      this. setState({
-        weatherCity: weather.name,
-        // weatherTemp:
-      });
-      console.log('in fetch states', this.state)
-    })
-    .catch(err => console.log('searchZip frontend', err));
- }
-
 
   // Update Input
   handleInput(e) {
     // console.log('handleInput', e.target.value);
     this.setState({
-      titleInput : e.target.value,
+      // titleInput : e.target.value,
+      value : e.target.value,
     });
   }
 
@@ -71,7 +48,7 @@ class App extends Component {
           <p>Sup World.</p>
 
           <WeatherForm
-          getAllMovies={this.getAllMovies.bind(this)}
+            getAllWeather={this.getAllWeather.bind(this)}
             handleInput={event => this.handleInput(event)}
             handleClick={() => this.searchZip()}
           />
