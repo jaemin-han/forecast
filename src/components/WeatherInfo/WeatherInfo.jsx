@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import Fetch from 'react-fetch';
 import '../normalize.css';
 import './WeatherInfo.css';
@@ -9,7 +9,7 @@ export default class WeatherInfo extends Component {
   checkInputZip() {
     if (this.props.searched) {
       return (
-        <div key="search-result" className="#">
+        <div key="search-result">
           <h3>{this.props.city}</h3>
         </div>
       )
@@ -21,7 +21,7 @@ export default class WeatherInfo extends Component {
   render() {
     return(
       <div>
-        {this.checkInputTitle()}
+        {this.checkInputZip()}
       </div>
     )
   }

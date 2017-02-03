@@ -4,20 +4,36 @@ import style from './App.css';
 import WeatherForm from './WeatherForm/WeatherForm.jsx';
 import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
 
+const API_KEY = process.env.WEATHER_API_KEY;
+
 class App extends Component {
   constructor() {
     super();
 
     this.state = {
+      getWeather: [],
       value: '',
       weatherCity: '',
       searched: false,
     };
+}
+
+
+  getAllWeather() {
+    fetch('/api/weather')
+    .then(r => r.json())
+    .then(results => {
+      this.setState({
+        getWeather : results,
+      });
+      console.log('getWeather', this.state.getWeather)
+    })
+    .catch(err => console.log('getAllWeather frontend', err))
+  }
+
 
   // calls external api => openweathermap.com
   // search using value and save city information to state
-  const API_KEY = process.env.WEATHER_API_KEY;
-
   searchZip() {
     this.setState ({
       searched: true,
@@ -55,6 +71,7 @@ class App extends Component {
           <p>Sup World.</p>
 
           <WeatherForm
+          getAllMovies={this.getAllMovies.bind(this)}
             handleInput={event => this.handleInput(event)}
             handleClick={() => this.searchZip()}
           />
