@@ -17,6 +17,7 @@ router.post('/weather', (req, res) => {
   .then(r=>r.json())
   .then(weather => {
     console.log('in fetch weather', weather)
+    res.json(weather); // send to frontend as json
   })
   .catch(() => res.status(500)) // internal error, no weather sorry
 });

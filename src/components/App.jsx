@@ -24,15 +24,17 @@ class App extends Component {
       method: 'POST',
       body: JSON.stringify({zip: this.state.value}),
     })
-    .then(data => console.log())
+    .then(r => r.json())
+    .then(data => {
+      console.log(data);
+      this.setState({ weatherResult: data });
+    })
     .catch(() => res.status(500));
   }
 
   // Update Input
   handleInput(e) {
-    // console.log('handleInput', e.target.value);
     this.setState({
-      // titleInput : e.target.value,
       value : e.target.value,
     });
   }
@@ -54,8 +56,7 @@ class App extends Component {
           />
 
           <WeatherInfo
-            searched={this.state.searched}
-            city={this.state.weatherCity}
+            allInfo={this.state.weatherResult}
           />
 
         </div>
