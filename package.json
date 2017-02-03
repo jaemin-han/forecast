@@ -23,9 +23,11 @@
   "homepage": "https://github.com/jaemin-han/forecast#readme",
   "dependencies": {
     "axios": "^0.15.3",
+    "body-parser": "^1.16.0",
     "dotenv": "^4.0.0",
     "express": "^4.14.1",
     "morgan": "^1.7.0",
+    "node-fetch": "^1.6.3",
     "path": "^0.12.7",
     "pg-promise": "^5.5.5",
     "react-fetch": "0.0.9"
