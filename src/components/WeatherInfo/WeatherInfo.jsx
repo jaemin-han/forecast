@@ -11,6 +11,7 @@ export default class WeatherInfo extends Component {
         <div>
           <h3>{this.props.allInfo.name}</h3>
           <h3>{this.props.allInfo.main.temp}</h3>
+          <h3>{this.props.allInfo.weather[0].description}</h3>
 
         </div>
       )
