@@ -2,5 +2,6 @@
 
 ## It's Snowing! Wait...wait. Is it?
 
-## User Flow
+## Initial Setup
 ![React Setup](./public/initial_step.png)
+![React Setup](./public/initial_step2.png)
