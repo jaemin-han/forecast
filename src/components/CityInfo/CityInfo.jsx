@@ -9,7 +9,8 @@ export default class CityInfo extends Component {
     if (this.props.gotCity) {
       return (
         <div id="city">
-          <h3>-City 5 Day Forecast-</h3>
+          <h3>- 5 Day Forecast -</h3>
+          <h3>{this.props.gotCity.city.name}</h3>
 
 
           <div className="days">

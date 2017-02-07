@@ -1,22 +1,26 @@
 /*Style!*/
-/*#input {
+#input2 {
   font-family: 'Pangolin', cursive;
   height: 25px;
   width: 150px;
   text-align: center;
   border: none;
+  margin-right: 5px;
 }
 
-#button {
+#button2 {
+  font-family: 'Pangolin', cursive;
   background-color: tomato;
   border: none;
   height: 27px;
+  padding-top: 4px;
   width: 80px;
   cursor: pointer
 }
 
-#button:hover {
+#button2:hover {
+  font-family: 'Pangolin', cursive;
   background-color: black;
   color: white;
 }
-*/
+
