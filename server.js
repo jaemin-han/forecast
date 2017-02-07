@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 // routes setup
 // indexRouter called in the index routes
 const weatherRouter = require('./routes/weather');
+const cityRouter = require('./routes/city');
 
 const app = express();
 const PORT = process.argv[2] || process.env.port || 3000;
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 // creating index file
 app.use('/api', weatherRouter);
+app.use('/search', cityRouter);
 
 // Listen on port for connections
 app.listen(PORT, () => console.log('Server Listening Alright!', PORT));

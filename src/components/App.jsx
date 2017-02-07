@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './normalize.css';
 import style from './App.css';
 import WeatherForm from './WeatherForm/WeatherForm.jsx';
-import WeatherInfo from './WeatherInfo/WeatherInfo.jsx'
+import WeatherInfo from './WeatherInfo/WeatherInfo.jsx';
+import CityForm from './CityForm/CityForm.jsx';
+import CityInfo from './CityInfo/CityInfo.jsx';
 
 
 class App extends Component {
@@ -17,6 +19,7 @@ class App extends Component {
     };
 }
 
+// Get data based on Zip Code
   getAllWeather() {
     // fetch('/api/weather?zip=' + this.state.value)
     fetch('/api/weather', {
@@ -31,6 +34,22 @@ class App extends Component {
     })
     .catch(() => res.status(500));
   }
+
+// Get data based on City Name
+  getCityWeather() {
+    fetch('/search/city', {
+      headers: { 'Content-Type' : 'application/json'},
+      method: 'POST',
+      body: JSON.stringify({cities: this.state.value}),
+    })
+    .then(r => r.json())
+    .then(cityz => {
+      console.log(cityz);
+      this.setState({ weatherCity: cityz });
+    })
+    .catch(() => res.status(500));
+  }
+
 
   // Update Input
   handleInput(e) {
@@ -52,12 +71,22 @@ class App extends Component {
           <WeatherForm
             getAllWeather={this.getAllWeather.bind(this)}
             handleInput={event => this.handleInput(event)}
-            handleClick={() => this.searchZip()}
+            // handleClick={() => this.searchZip()}
+          />
+
+          <CityForm
+            getCityWeather={this.getCityWeather.bind(this)}
+            handleInput={event => this.handleInput(event)}
           />
 
           <WeatherInfo
             allInfo={this.state.weatherResult}
           />
+
+          <CityInfo
+            gotCity={this.state.weatherCity}
+          />
+
 
         </div>
       </div>
