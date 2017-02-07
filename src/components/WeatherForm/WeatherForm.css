@@ -5,17 +5,20 @@
   width: 150px;
   text-align: center;
   border: none;
+  margin-right: 5px;
 }
 
 #button {
+  font-family: 'Pangolin', cursive;
   background-color: tomato;
   border: none;
-  height: 27px;
+  height: 29px;
   width: 80px;
-  cursor: pointer
+  cursor: pointer;
 }
 
 #button:hover {
+  font-family: 'Pangolin', cursive;
   background-color: black;
   color: white;
 }
