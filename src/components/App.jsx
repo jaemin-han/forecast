@@ -74,6 +74,8 @@ class App extends Component {
             // handleClick={() => this.searchZip()}
           />
 
+          <h3>- or -</h3>
+
           <CityForm
             getCityWeather={this.getCityWeather.bind(this)}
             handleInput={event => this.handleInput(event)}

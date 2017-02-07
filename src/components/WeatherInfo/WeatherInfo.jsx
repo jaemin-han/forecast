@@ -9,7 +9,7 @@ export default class WeatherInfo extends Component {
     if (this.props.allInfo) {
       return (
         <div id="info">
-          <h3>-Weather-</h3>
+          <h3>-Today's Weather-</h3>
           <h3>{this.props.allInfo.name}</h3>
           <h3>{this.props.allInfo.main.temp}</h3>
           <h3>{this.props.allInfo.weather[0].description}</h3>
