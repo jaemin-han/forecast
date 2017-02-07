@@ -63,7 +63,7 @@ class App extends Component {
       <div id="app-container">
       <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet" />
         <header>
-          <h1>What's the Weather Like Today?</h1>
+          <h1 id="highlight">What's the Weather Like Today?</h1>
         </header>
         <div id="center">
           <p>Sup World.</p>

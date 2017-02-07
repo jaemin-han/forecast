@@ -8,12 +8,12 @@ export default class CityForm extends Component {
       <div>
       <link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet" />
         <input
-          id="input"
+          id="input2"
           type="text"
           placeholder="Enter City"
           onChange={this.props.handleInput}  />
 
-        <button onClick={this.props.getCityWeather} id="button" >Search</button>
+        <button onClick={this.props.getCityWeather} id="button2" >Search</button>
       </div>
     )
   }
