@@ -9,4 +9,13 @@
 
 .days {
   display: inline-block;
+  margin: 0 5px 40px 5px;
+}
+
+.days:nth-child(odd) {
+  background-color: #FFEFD5;
+}
+
+.days:nth-child(even) {
+  background-color: #FFDAB9;
 }
