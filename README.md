@@ -5,3 +5,5 @@
 ## Initial Setup
 ![React Setup](./public/initial_step.png)
 ![React Setup](./public/initial_step2.png)
+![React Setup](./public/initial_step3.png)
+
