@@ -14,27 +14,27 @@ export default class CityInfo extends Component {
 
 
           <div className="days">
-            <h3>{this.props.gotCity.list[0].dt_txt}</h3>
+            <h3>{this.props.gotCity.list[0].dt_txt.split(' ').slice(0, -1).join(' ')}</h3>
             <h3>{this.props.gotCity.list[0].weather[0].description}</h3>
           </div>
 
           <div className="days">
-            <h3>{this.props.gotCity.list[8].dt_txt}</h3>
+            <h3>{this.props.gotCity.list[8].dt_txt.split(' ').slice(0, -1).join(' ')}</h3>
             <h3>{this.props.gotCity.list[8].weather[0].description}</h3>
           </div>
 
           <div className="days">
-            <h3>{this.props.gotCity.list[16].dt_txt}</h3>
+            <h3>{this.props.gotCity.list[16].dt_txt.split(' ').slice(0, -1).join(' ')}</h3>
             <h3>{this.props.gotCity.list[16].weather[0].description}</h3>
           </div>
 
           <div className="days">
-            <h3>{this.props.gotCity.list[24].dt_txt}</h3>
+            <h3>{this.props.gotCity.list[24].dt_txt.split(' ').slice(0, -1).join(' ')}</h3>
             <h3>{this.props.gotCity.list[24].weather[0].description}</h3>
           </div>
 
           <div className="days">
-            <h3>{this.props.gotCity.list[32].dt_txt}</h3>
+            <h3>{this.props.gotCity.list[32].dt_txt.split(' ').slice(0, -1).join(' ')}</h3>
             <h3>{this.props.gotCity.list[32].weather[0].description}</h3>
           </div>
 
