@@ -45,6 +45,8 @@ class WeatherDisplay extends Component {
   }
 }
 
+// need to find a way to render weather data (here/new component)
+
 function dispatchToProps(dispatch) {
   return bindActionCreator({ fetchWeather }, dispatch);
 }

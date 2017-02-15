@@ -90,6 +90,9 @@ class App extends Component {
             gotCity={this.state.weatherCity}
           />
 
+          <WeatherDisplay />
+
+
 
         </div>
       </div>
