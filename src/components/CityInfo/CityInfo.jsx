@@ -9,9 +9,8 @@ export default class CityInfo extends Component {
     if (this.props.gotCity) {
       return (
         <div id="city">
-          <h3>- 5 Day Forecast -</h3>
-          <h3>{this.props.gotCity.city.name}</h3>
-
+          <h3 className="title">- 5 Day Forecast -</h3>
+          <h3 className="title">{this.props.gotCity.city.name}</h3>
 
           <div className="days">
             <h3>{this.props.gotCity.list[0].dt_txt.split(' ').slice(0, -1).join(' ')}</h3>
