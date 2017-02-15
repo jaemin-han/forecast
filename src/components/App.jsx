@@ -5,6 +5,7 @@ import WeatherForm from './WeatherForm/WeatherForm.jsx';
 import WeatherInfo from './WeatherInfo/WeatherInfo.jsx';
 import CityForm from './CityForm/CityForm.jsx';
 import CityInfo from './CityInfo/CityInfo.jsx';
+import WeatherDisplay from './WeatherDisplay/WeatherDisplay.jsx';
 
 
 class App extends Component {
